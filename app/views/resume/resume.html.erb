@@ -1,0 +1,7 @@
+<%= render 'sub_nav' %>
+
+<h1>Please click on the resume you wish to see</h1>
+
+<% @categories.each do |category| %>
+	<h2><%= link_to category.title, category_path(:title => category.title) %></h2>
+<% end %>

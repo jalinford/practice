@@ -1,0 +1,24 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Example Resume", root_path %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li class="divider"></li>
+      <li class="has-dropdown"><a href="#">Resume</a>
+        <ul class="dropdown">
+          <li><%= link_to "General Information", resume_path %></li>
+          <li><label>Specfic Resumes</label></li>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.title, category_path(:title => category.title) %></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>

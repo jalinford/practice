@@ -1,0 +1,7 @@
+<dl class="sub-nav">
+  <dt>Resumes:</dt>
+  <dd class="<%= 'active' if @category.nil? %>" ><%= link_to "Info", resume_path %></dd>
+  <% @categories.each do |category| %>
+		<dd class="<%= 'active' if @category == category %>"><%= link_to category.title, category_path(:title => category.title) %></dd>
+	<% end %>
+</dl>
