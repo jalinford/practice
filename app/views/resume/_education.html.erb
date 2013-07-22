@@ -1,4 +1,7 @@
-<h3>Education</h3>
-<h5>Staford University</h5>
-<h6>2007 - 2011<h6>
-<p>B.A. International Relations, Minor in U.S. History, Certificate in African Studies<p>
+<h4><%= education.name %></h4>
+<h5><%= education.location unless education.location.nil? %></h5>
+<ul class="disc">
+	<% education.education_highlights.each do |highlight| %>
+		<li><%= highlight.highlight %><li>
+	<% end %>
+</ul>

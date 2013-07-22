@@ -1,0 +1,11 @@
+<h4>
+	<%= experience.position unless experience.position.nil? %>
+</h4>
+<h5>
+	<%= experience.title %><%= ", " + experience.location unless experience.location.nil? %>
+</h5>
+<h6>
+	<%= experience.start_date.strftime('%B %Y') unless experience.start_date.nil? %>
+	<%= " - " + experience.end_date.strftime('%B %Y') unless experience.end_date.nil? %>
+</h6>
+<p><%= experience.description unless experience.description.nil?%></p>
