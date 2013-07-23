@@ -16,3 +16,5 @@
 //= require_self
 
 $(function(){ $(document).foundation(); });
+
+$(document).foundation();

@@ -1,12 +1,43 @@
 <%= render 'sub_nav' %>
 <%= render "heading" %>
 
+<h1>Combined if needed (other below)</h2>
+
 <h3>Education</h3>
-<% @educations.each do |education| %>
-	<%= render 'education', :education => education %>
+	<% @educ_combined.each do |education| %>
+	<h4><%= education.name %></h4>
+	<h5><%= education.location unless education.location.nil? %></h5>
+	<ul class="disc">
+		<% education.education_highlights.each do |highlight| %>
+			<% if highlight.categories.any? { |x| @category_all.include?(x) } %>
+				<li><%= highlight.highlight %></li>
+			<% end %>
+		<% end %>
+	</ul>
 <% end %>
 
 <h3>Previous Experience</h3>
-<% @category.experiences.each do |experience| %>
-	<%= render 'experience', :experience => experience %>
+<% @exp_combined.each do |experience| %>
+	<h4><%= experience.position unless experience.position.nil? %></h4>
+	<h5><%= experience.title %><%= ", " + experience.location unless experience.location.nil? %></h5>
+	<h6><%= experience.start_date.strftime('%B %Y') unless experience.start_date.nil? %>
+	<%= " - " + experience.end_date.strftime('%B %Y') unless experience.end_date.nil? %></h6>
+	<p><%= experience.description unless experience.description.nil?%></p>
 <% end %>
+
+<% @category_all.each do |category| %>
+
+	<h2>Category = <%= category.title %> </h2>
+
+	<h3>Education</h3>
+	<% cat_educ(category).each do |education| %>
+		<%= render 'education', :education => education, :category => category %>
+	<% end %>
+
+	<h3>Previous Experience</h3>
+	<% category.experiences.each do |experience| %>
+		<%= render 'experience', :experience => experience %>
+	<% end %>
+
+<% end %>
+

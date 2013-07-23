@@ -7,7 +7,7 @@ BlogFeed::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  match '/resume/:title', :to => "resume#category", as: 'category'
+  get '/resume/*title', :to => "resume#category", as: 'category'
 
   resources :resume do
     resource :category

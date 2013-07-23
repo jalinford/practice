@@ -12,6 +12,3 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
-
-@import "layout/*.png";
-@include all-layout-sprites;
